@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mateus Mendes · Marketing, Design &amp; Développement Web</title>
+<meta name="description" content="Portfolio de Mateus Mendes : marketing, design et développement web. Marques et réseaux sociaux, logiciels et plateformes, sites et applications Kotlin de bout en bout." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+
+<style>
+  /* ============ OVERLAY & MODAL DE IDIOMA ============ */
+  .lang-modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 9, 8, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .lang-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lang-modal-card {
+    background: #171513;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 36px 32px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transform: scale(0.96);
+    transition: transform 0.35s ease;
+    box-sizing: border-box;
+  }
+
+  .lang-modal-overlay.active .lang-modal-card {
+    transform: scale(1);
+  }
+
+  .lang-modal-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #c5a880;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .lang-modal-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.6rem;
+    line-height: 1.25;
+    color: #f5f5f5;
+    margin: 0 0 8px 0;
+    font-weight: 400;
+  }
+
+  .lang-modal-desc {
+    font-size: 0.88rem;
+    color: #9a948d;
+    margin: 0 0 24px 0;
+    line-height: 1.45;
+  }
+
+  .lang-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .lang-modal-btn {
+    background: #211e1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .lang-modal-btn:hover {
+    background: #2b2722;
+    border-color: #c5a880;
+    transform: translateY(-2px);
+  }
+
+  .lang-modal-btn .lang-btn-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .lang-modal-btn .lang-btn-region {
+    color: #8c857b;
+    font-size: 0.75rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#accueil" class="nav__brand">
+      <span class="nav__mark">MM</span>
+      <span class="nav__name">Mateus Mendes</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+      <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
+      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#logiciels" data-i18n="nav.logiciels">Logiciels</a>
+      <a href="#produits" data-i18n="nav.sites">Sites &amp; Apps</a>
+      <a href="#projets" data-i18n="nav.demos">Démos</a>
+      <a href="#marques" data-i18n="nav.marques">Marques</a>
+      <a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a>
+      <div class="lang" id="langPicker" role="group" aria-label="Language / Langue">
+        <button class="lang__toggle" id="langToggle" aria-haspopup="true" aria-expanded="false">
+          <span id="langCurrent">FR</span>
+          <svg class="lang__caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="lang__menu" role="menu">
+          <li><button type="button" role="menuitem" data-lang-btn="fr">FR &nbsp;· Français</button></li>
+          <li><button type="button" role="menuitem" data-lang-btn="en">EN &nbsp;· English</button></li>
+          <li><button type="button" role="menuitem" data-lang-btn="es">ES &nbsp;· Español</button></li>
+          <li><button type="button" role="menuitem" data-lang-btn="pt">PT &nbsp;· Português</button></li>
+        </ul>
+      </div>
+    </nav>
+    <button class="nav__burger" id="navBurger" aria-label="Ouvrir le menu" data-i18n-attr="aria-label:nav.menuOpen" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="accueil">
+  <div class="hero__grid">
+    <div class="hero__text">
+      <p class="hero__eyebrow" data-i18n="hero.eyebrow">Portfolio</p>
+      <h1 class="hero__title">Mateus<br>Mendes</h1>
+      <p class="hero__role" data-i18n="hero.role">Marketing Specialist <i>·</i> Design <i>·</i> Développement Web</p>
+      <p class="hero__lede" data-i18n="hero.lede">Je construis les logiciels, les sites et les applications qui font tourner l'entreprise, avec la même personne qui pense la marque et dessine l'interface. Du produit en production au branding, une seule main.</p>
+      <div class="hero__actions">
+        <a href="#logiciels" class="btn btn--solid" data-i18n="hero.ctaProjects">Voir les projets</a>
+        <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaContact">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <img src="assets/img/hero.jpg" alt="Portrait de Mateus Mendes" data-i18n-attr="alt:hero.alt" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARCOURS ============ -->
+<section class="parcours section" id="parcours">
+  <div class="wrap parcours__grid">
+    <div class="parcours__aside">
+      <p class="label" data-i18n="parcours.label">Mon parcours</p>
+      <figure class="parcours__photo">
+        <img src="assets/img/portrait.jpg" alt="Mateus Mendes au travail" data-i18n-attr="alt:parcours.photoAlt" />
+      </figure>
+    </div>
+    <div class="parcours__body">
+      <p class="parcours__lead" data-i18n="parcours.p1">J'ai commencé dans le design encore adolescent, de CorelDRAW à Adobe, et c'est ainsi que je suis entré dans le marketing.</p>
+      <p data-i18n="parcours.p2">À 18 ans, je dirigeais déjà ma propre agence, et plus tard j'ai piloté la communication et le marketing d'une startup technologique. Le marketing et la presence numérique sont, depuis longtemps, le terrain où je me sens chez moi.</p>
+      <p data-i18n="parcours.p3">Au fil des années, j'ai accompagné le client jusqu'où le problème l'exigeait, et cela m'a mené du design et de la campagne vers l'intérieur du produit. Aujourd'hui, chez TechnAvas, je développe les applications et les plateformes web qui font fonctionner ces entreprises.</p>
+      <p data-i18n="parcours.p4">L'UX vient avant le code, et le produit naît en pensant à ce qu'il doit générer pour l'entreprise.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERTISE ============ -->
+<section class="expertise section" id="expertise">
+  <div class="wrap">
+    <header class="expertise__head">
+      <p class="label" data-i18n="exp.label">Ce que je fais</p>
+      <h2 class="expertise__intro" data-i18n="exp.intro">Développement, design et marketing chez une seule personne : je construis le produit qui part en production, je dessine l'interface et je pense la marque qui la porte.</h2>
+    </header>
+
+    <div class="pillars">
+      <article class="pillar">
+        <span class="pillar__num">01</span>
+        <h3 data-i18n="exp.pillar1.title">Logiciels &amp; Plateformes</h3>
+        <p data-i18n="exp.pillar1.desc">Des systèmes qui automatisent le contenu, organisent les ventes et font passer l'opération à l'échelle.</p>
+        <p class="pillar__tags" data-i18n="exp.pillar1.tags">CRM · Contenu par IA · Planification</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar__num">02</span>
+        <h3 data-i18n="exp.pillar2.title">Sites &amp; Apps</h3>
+        <p data-i18n="exp.pillar2.desc">Applications en Kotlin et sites de bout en bout, du parcours UX à l'interface.</p>
+        <p class="pillar__tags" data-i18n="exp.pillar2.tags">Apps mobiles · Sites · E-commerce</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar__num">03</span>
+        <h3 data-i18n="exp.pillar3.title">Marques &amp; Réseaux Sociaux</h3>
+        <p data-i18n="exp.pillar3.desc">Identité, direction artistique et contenu pour que la marque existe avant le budget média.</p>
+        <p class="pillar__tags" data-i18n="exp.pillar3.tags">Branding · Social media · Campagnes</p>
+      </article>
+    </div>
+
+    <aside class="ai-card">
+      <div class="ai-card__text">
+        <h3 data-i18n="ai.title">Maîtrise de l'IA</h3>
+        <p data-i18n="ai.desc">Gemini, Claude et APIs officielles (Google Places, YouTube) intégrés à mes produits pour automatiser des tâches et gagner en échelle.</p>
+      </div>
+      <ul class="ai-card__chips">
+        <li>Gemini</li>
+        <li>Claude</li>
+        <li>Google Places API</li>
+        <li>YouTube Data API</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PILIER 01 · LOGICIELS ============ -->
+<section class="divider" id="logiciels">
+  <div class="wrap divider__inner">
+    <p class="divider__index">01 / 03</p>
+    <h2 class="divider__title" data-i18n="div.logiciels.title">Logiciels</h2>
+    <p class="divider__lede" data-i18n="div.logiciels.lede">Systèmes et plateformes que nous développons pour automatiser la production de contenu, organiser les ventes et faire passer les opérations à l'échelle.</p>
+  </div>
+</section>
+
+<section class="software section">
+  <div class="wrap">
+
+    <!-- CRM -->
+    <article class="soft">
+      <div class="soft__head">
+        <h3 class="soft__name">CRM</h3>
+        <p class="soft__stack" data-i18n="crm.stack">Plateforme multi-entreprises en React, Tailwind et Firebase, avec pipeline kanban (dnd-kit) et prospection autonome via Gemini et Claude.</p>
+      </div>
+      <div class="ppr">
+        <div class="ppr__col"><h4 data-i18n="meta.problem">Problème</h4><p data-i18n="crm.problem">Plusieurs entreprises et sociétés gérées sur des feuilles éparses, sans vue du pipeline ni méthode de prospection.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.process">Processus</h4><p data-i18n="crm.process">Un seul tableau de bord par entreprise, avec pipeline kanban et prospection qui puise dans Google Places et filtre par quartier, ville et secteur.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.result">Résultat</h4><p data-i18n="crm.result">Un seul écran pour gérer todas les marques e générer des leads qualifiés seul, sans listes achetées.</p></div>
+      </div>
+      <div class="soft__shots shots--wide">
+        <img src="assets/img/crm-1.jpg" alt="Tableau de bord du CRM" loading="lazy" data-i18n-attr="alt:crm.alt1" />
+        <img src="assets/img/crm-2.jpg" alt="Liste de leads du CRM" loading="lazy" data-i18n-attr="alt:crm.alt2" />
+      </div>
+    </article>
+
+    <!-- DesignerAvas -->
+    <article class="soft">
+      <div class="soft__head">
+        <h3 class="soft__name">DesignerAvas</h3>
+        <p class="soft__stack" data-i18n="designer.stack">Générateur de visuels en HTML5 Canvas et JavaScript pur, avec back-end PHP propre et Gemini intégré. Exporte feed et story prêts.</p>
+      </div>
+      <div class="ppr">
+        <div class="ppr__col"><h4 data-i18n="meta.problem">Problème</h4><p data-i18n="designer.problem">Sur le compte d'un journal, chaque visuel exigeait de choisir une image, lire l'article, réécrire titre et légende et monter deux formats sur Photoshop, Illustrator et Canva.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.process">Processus</h4><p data-i18n="designer.process">Des gabarits standardisés en deux grilles, feed et story. Vous collez le lien ou écrivez le thème et l'IA génère titre, description et légende Instagram déjà avec hashtags.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.result">Résultat</h4><p data-i18n="designer.result">Ce qui prenait plusieurs étapes et trois logiciels se règle désormais en moins d'une minute.</p></div>
+      </div>
+      <div class="soft__shots shots--mix">
+        <img src="assets/img/designer-1.jpg" alt="Interface du générateur DesignerAvas" loading="lazy" data-i18n-attr="alt:designer.alt1" />
+        <img src="assets/img/designer-2.png" alt="Panneau d'export feed et story" loading="lazy" data-i18n-attr="alt:designer.alt2" />
+      </div>
+    </article>
+
+    <!-- TubeMetric -->
+    <article class="soft">
+      <div class="soft__head">
+        <h3 class="soft__name">TubeMetric</h3>
+        <p class="soft__stack" data-i18n="tube.stack">Planificateur et publicateur YouTube en HTML, CSS et JS, avec Gemini et l'API officielle de Google. Publie sans quitter la plateforme.</p>
+      </div>
+      <div class="ppr">
+        <div class="ppr__col"><h4 data-i18n="meta.problem">Problème</h4><p data-i18n="tube.problem">Un journal avec une chaîne de 2 440 abonnés voulait monétiser, mais YouTube Studio ne planifiait ni le contenu ni les heures vers l'objectif.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.process">Processus</h4><p data-i18n="tube.process">Croise les rapports de vues et de croissance, planifie le contenu et le minutage, génère titre et description avec l'IA et publie via l'API de Google.</p></div>
+        <div class="ppr__col"><h4 data-i18n="meta.result">Résultat</h4><p data-i18n="tube.result">Suit les 4 000 heures en un an exigées pour monétiser, le tout dans un seul onglet, avec plus de concentration et de productivité.</p></div>
+      </div>
+      <div class="soft__shots shots--mix">
+        <img src="assets/img/tube-1.jpg" alt="Agenda de la chaîne dans TubeMetric" loading="lazy" data-i18n-attr="alt:tube.alt1" />
+        <img src="assets/img/tube-2.png" alt="Programmation d'une vidéo" loading="lazy" data-i18n-attr="alt:tube.alt2" />
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PILIER 02 · SITES & APPS ============ -->
+<section class="divider divider--dark" id="produits">
+  <div class="wrap divider__inner">
+    <p class="divider__index">02 / 03</p>
+    <h2 class="divider__title" data-i18n="div.sites.title">Sites &amp; Apps</h2>
+    <p class="divider__lede" data-i18n="div.sites.lede">Applications en Kotlin et sites conçus de bout en bout, du parcours UX à l'interface finale.</p>
+  </div>
+</section>
+
+<section class="products section">
+  <div class="wrap">
+
+    <!-- Assurance -->
+    <article class="prod">
+      <div class="prod__info">
+        <h3 class="prod__name" data-i18n="ins.title">Site et App · Courtage d'assurance</h3>
+        <p class="prod__desc" data-i18n="ins.desc">Site en HTML, CSS et JavaScript qui capte des leads en temps réel, en les enregistrant directement dans un tableur via Google Apps Script. L'application, en Kotlin, est en marque blanche et intègre les assureurs via une API propre, avec souscription instantanée pour une partie des branches et alertes de renouvellement.</p>
+        <p class="prod__stack" data-i18n="ins.stack">HTML · CSS · JavaScript · Kotlin · Google Apps Script</p>
+      </div>
+      <div class="prod__shots prod__shots--siteapp">
+        <img src="assets/img/seguros-site.jpg" alt="Site de cotation du courtier d'assurance" loading="lazy" data-i18n-attr="alt:ins.alt1" />
+        <img src="assets/img/seguros-app.png" alt="Application mobile du courtier d'assurance" loading="lazy" data-i18n-attr="alt:ins.alt2" />
+      </div>
+    </article>
+
+    <!-- Patinage -->
+    <article class="prod prod--reverse">
+      <div class="prod__info">
+        <h3 class="prod__name" data-i18n="skate.title">App · École de patinage</h3>
+        <p class="prod__desc" data-i18n="skate.desc">Application développée en Kotlin pour une école de patinage, avec agenda des cours et des événements, espace financier (mensualité, Pix et carte récurrente), réservation de patins par pointure et suivi de la progression des élèves.</p>
+        <p class="prod__stack" data-i18n="skate.stack">Kotlin · Paiements récurrents · Réservation</p>
+      </div>
+      <div class="prod__shots prod__shots--phones">
+        <img src="assets/img/patinacao-1.png" alt="Écran d'accueil de l'app de patinage" loading="lazy" data-i18n-attr="alt:skate.alt1" />
+        <img src="assets/img/patinacao-2.png" alt="Espace financier de l'app" loading="lazy" data-i18n-attr="alt:skate.alt2" />
+        <img src="assets/img/patinacao-3.png" alt="Réservation de patins par pointure" loading="lazy" data-i18n-attr="alt:skate.alt3" />
+      </div>
+    </article>
+
+    <!-- Épicerie -->
+    <article class="prod">
+      <div class="prod__info">
+        <h3 class="prod__name" data-i18n="shop.title">Site · Épicerie</h3>
+        <p class="prod__desc" data-i18n="shop.desc">Site e-commerce pour une épicerie bio, avec catalogue saisonnier, vitrine de produits et commande directe par le client.</p>
+        <p class="prod__stack" data-i18n="shop.stack">E-commerce · Catalogue · Commande en ligne</p>
+      </div>
+      <div class="prod__shots prod__shots--single">
+        <img src="assets/img/epicerie.jpg" alt="Boutique en ligne de l'épicerie" loading="lazy" data-i18n-attr="alt:shop.alt" />
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ PROJETS EN LIGNE ============ -->
+<section class="live-section section" id="projets">
+  <div class="wrap">
+    <header class="live-head">
+      <p class="label" data-i18n="live.label">En ligne</p>
+      <h2 class="live-title" data-i18n="live.title">Découvrez tous les projets, en direct</h2>
+      <p class="live-lede" data-i18n="live.lede">Une sélection de prototypes livrés et navigables. Chaque vignette est un aperçu réel du projet. Cliquez pour ouvrir la démo interactive dans un nouvel onglet.</p>
+    </header>
+
+    <div class="live-grid">
+
+      <a class="live" href="https://appcorretora.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">C</span><iframe class="live__ifr" data-src="https://appcorretora.avasgestao.com/" title="Aperçu du projet Courtage d'assurance" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.insurance">Assurance</span><h3 class="live__name" data-i18n="proj.insurance">Courtage d'assurance</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="https://barbearia.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">B</span><iframe class="live__ifr" data-src="https://barbearia.avasgestao.com/" title="Aperçu du projet Barber&amp;Co" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.barber">Barbershop</span><h3 class="live__name" data-i18n="proj.barber">Barber &amp; Co</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="https://cabelo.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">S</span><iframe class="live__ifr" data-src="https://cabelo.avasgestao.com/" title="Aperçu du projet Salon de coiffure" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.beauty">Beauté</span><h3 class="live__name" data-i18n="proj.hair">Salon de coiffure</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="http://canva.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">V</span><iframe class="live__ifr" data-src="http://canva.avasgestao.com/" title="Aperçu du projet Éditeur de visuels" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.creative">Création</span><h3 class="live__name" data-i18n="proj.canva">Éditeur de visuels</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="https://clinica.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">C</span><iframe class="live__ifr" data-src="https://clinica.avasgestao.com/" title="Aperçu du projet Clinique médicale" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.health">Santé</span><h3 class="live__name" data-i18n="proj.clinic">Clinique médicale</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="http://emporio.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">É</span><iframe class="live__ifr" data-src="http://emporio.avasgestao.com/" title="Aperçu du projet Épicerie fine" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.grocery">Épicerie</span><h3 class="live__name" data-i18n="proj.epicerie">Épicerie fine</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="https://fono.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">O</span><iframe class="live__ifr" data-src="https://fono.avasgestao.com/" title="Aperçu du projet Orthophonie" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.health">Santé</span><h3 class="live__name" data-i18n="proj.speech">Orthophonie</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="https://nutri.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">N</span><iframe class="live__ifr" data-src="https://nutri.avasgestao.com/" title="Aperçu du projet Suivi nutritionnel" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.nutrition">Nutrition</span><h3 class="live__name" data-i18n="proj.nutri">Suivi nutritionnel</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+      <a class="live" href="http://imobiliaria.avasgestao.com/" target="_blank" rel="noopener noreferrer">
+        <div class="live__frame"><span class="live__ph" aria-hidden="true">I</span><iframe class="live__ifr" data-src="http://imobiliaria.avasgestao.com/" title="Aperçu du projet Immobilier" loading="lazy" scrolling="no" tabindex="-1"></iframe></div>
+        <div class="live__meta"><span class="live__tag" data-i18n="tag.realestate">Immobilier</span><h3 class="live__name" data-i18n="proj.realestate">Immobilier haut de gamme</h3><span class="live__go" data-i18n="live.go">Voir en direct</span></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILIER 03 · MARQUES ============ -->
+<section class="divider" id="marques">
+  <div class="wrap divider__inner">
+    <p class="divider__index">03 / 03</p>
+    <h2 class="divider__title" data-i18n="div.marques.title">Marques &amp;<br>Réseaux Sociaux</h2>
+    <p class="divider__lede" data-i18n="div.marques.lede">Identité, direction artistique et contenu pour des entreprises qui devaient exister dans l'esprit du public avant d'exister dans le budget média.</p>
+  </div>
+</section>
+
+<section class="cases section">
+  <div class="wrap">
+
+    <!-- Gann Capital -->
+    <article class="case">
+      <div class="case__info">
+        <h3 class="case__name">Gann Capital</h3>
+        <dl class="meta">
+          <div><dt data-i18n="meta.scope">Périmètre</dt><dd data-i18n="gann.scope">Réseaux sociaux</dd></div>
+          <div><dt data-i18n="meta.year">Année</dt><dd>2023</dd></div>
+          <div><dt data-i18n="meta.sector">Secteur</dt><dd data-i18n="gann.sector">Finance</dd></div>
+        </dl>
+        <p class="case__desc" data-i18n="gann.desc">Contenu et direction artistique pour un cabinet de conseil en investissement, traduisant le marché financier en publications qui inspirent confiance.</p>
+      </div>
+      <div class="case__gallery gallery--2">
+        <img src="assets/img/gann-1.jpg" alt="Publication Gann Capital : 3 meilleurs investissements" loading="lazy" data-i18n-attr="alt:gann.alt1" />
+        <img src="assets/img/gann-2.jpg" alt="Publication Gann Capital : prise de rendez-vous" loading="lazy" data-i18n-attr="alt:gann.alt2" />
+      </div>
+    </article>
+
+    <!-- Ana Sillos -->
+    <article class="case">
+      <div class="case__info">
+        <h3 class="case__name">Ana Sillos</h3>
+        <dl class="meta">
+          <div><dt data-i18n="meta.scope">Périmètre</dt><dd data-i18n="ana.scope">Identité et social</dd></div>
+          <div><dt data-i18n="meta.year">Année</dt><dd>2024</dd></div>
+          <div><dt data-i18n="meta.sector">Secteur</dt><dd data-i18n="ana.sector">Thérapies / Constellation</dd></div>
+        </dl>
+        <p class="case__quote" data-i18n="ana.quote">Une marque pour parler de douleur et de renouveau sans paraître clinique ni mystique.</p>
+        <p class="case__desc" data-i18n="ana.desc">Identité et contenu pour une praticienne en constellations, communiquant des processus émotionnels sans cliché spirituel ni froideur clinique.</p>
+      </div>
+      <figure class="case__cover">
+        <img src="assets/img/ana-hero.jpg" alt="Ana Sillos, praticienne en constellations" loading="lazy" data-i18n-attr="alt:ana.altHero" />
+      </figure>
+      <div class="case__gallery gallery--3">
+        <img src="assets/img/ana-1.jpg" alt="Publication Ana Sillos" loading="lazy" data-i18n-attr="alt:ana.altPost" />
+        <img src="assets/img/ana-2.jpg" alt="Publication Ana Sillos" loading="lazy" data-i18n-attr="alt:ana.altPost" />
+        <img src="assets/img/ana-3.jpg" alt="Publication Ana Sillos" loading="lazy" data-i18n-attr="alt:ana.altPost" />
+      </div>
+    </article>
+
+    <!-- MedViana -->
+    <article class="case">
+      <div class="case__info">
+        <h3 class="case__name">MedViana</h3>
+        <dl class="meta">
+          <div><dt data-i18n="meta.scope">Périmètre</dt><dd data-i18n="med.scope">Réseaux sociaux</dd></div>
+          <div><dt data-i18n="meta.year">Année</dt><dd>2024 – 2025</dd></div>
+          <div><dt data-i18n="meta.sector">Secteur</dt><dd data-i18n="med.sector">Clinique médicale</dd></div>
+        </dl>
+        <p class="case__desc" data-i18n="med.desc">Contenu santé pour une clinique médicale, alliant information fiable et langage accessible au patient.</p>
+      </div>
+      <div class="case__gallery gallery--3">
+        <img src="assets/img/medviana-1.jpg" alt="Publication MedViana : prévention" loading="lazy" data-i18n-attr="alt:med.alt1" />
+        <img src="assets/img/medviana-2.jpg" alt="Publication MedViana : symptômes" loading="lazy" data-i18n-attr="alt:med.alt2" />
+        <img src="assets/img/medviana-3.jpg" alt="Publication MedViana : équipe" loading="lazy" data-i18n-attr="alt:med.alt3" />
+      </div>
+    </article>
+
+    <!-- Dr. Paola -->
+    <article class="case">
+      <div class="case__info">
+        <h3 class="case__name">Dr. Paola</h3>
+        <dl class="meta">
+          <div><dt data-i18n="meta.scope">Périmètre</dt><dd data-i18n="paola.scope">Réseaux sociaux</dd></div>
+          <div><dt data-i18n="meta.year">Année</dt><dd>2023</dd></div>
+          <div><dt data-i18n="meta.sector">Secteur</dt><dd data-i18n="paola.sector">Médecin dermatologue</dd></div>
+        </dl>
+        <p class="case__quote" data-i18n="paola.quote">Esthétique éditoriale pour positionner la dermatologie sur le segment premium.</p>
+        <p class="case__desc" data-i18n="paola.desc">Direction artistique et contenu pour une dermatologue, avec une typographie éditoriale qui donne une allure sophistiquée à chaque campagne.</p>
+      </div>
+      <figure class="case__cover">
+        <img src="assets/img/paola-hero.jpg" alt="Dr. Paola, dermatologue" loading="lazy" data-i18n-attr="alt:paola.altHero" />
+      </figure>
+      <div class="case__gallery gallery--3">
+        <img src="assets/img/paola-1.jpg" alt="Campagne Dr. Paola" loading="lazy" data-i18n-attr="alt:paola.alt1" />
+        <img src="assets/img/paola-2.jpg" alt="Campagne Dr. Paola : skincare" loading="lazy" data-i18n-attr="alt:paola.alt2" />
+        <img src="assets/img/paola-3.jpg" alt="Campagne Dr. Paola : collagène" loading="lazy" data-i18n-attr="alt:paola.alt3" />
+      </div>
+    </article>
+
+    <!-- Helpers Delivery -->
+    <article class="case">
+      <div class="case__info">
+        <h3 class="case__name">Helpers Delivery</h3>
+        <dl class="meta">
+          <div><dt data-i18n="meta.scope">Périmètre</dt><dd data-i18n="helpers.scope">Direction Marketing</dd></div>
+          <div><dt data-i18n="meta.year">Année</dt><dd>2019</dd></div>
+          <div><dt data-i18n="meta.sector">Secteur</dt><dd data-i18n="helpers.sector">Application de livraison</dd></div>
+        </dl>
+        <p class="case__desc" data-i18n="helpers.desc">Direction de la communication et du marketing lors du lancement de l'app, du rebranding à la stratégie approuvée par les investisseurs providentiels.</p>
+      </div>
+      <div class="case__gallery gallery--3">
+        <img src="assets/img/helpers-1.jpg" alt="Mascotte Helpers Delivery" loading="lazy" data-i18n-attr="alt:helpers.alt1" />
+        <img src="assets/img/helpers-2.jpg" alt="Campagne de lancement Helpers" loading="lazy" data-i18n-attr="alt:helpers.alt2" />
+        <img src="assets/img/helpers-3.jpg" alt="Lancement Helpers à Fortaleza" loading="lazy" data-i18n-attr="alt:helpers.alt3" />
+      </div>
+    </article>
+
+    <!-- Divers -->
+    <article class="case case--divers">
+      <div class="case__info">
+        <h3 class="case__name" data-i18n="divers.title">Divers</h3>
+        <p class="case__quote" data-i18n="divers.quote">Un aperçu des marques passées entre nos mains au fil des années.</p>
+        <p class="case__desc" data-i18n="divers.desc">De la gastronomie au commerce et aux services, des dizaines de marques accompagnées en social et en design au cours de la dernière décennie.</p>
+      </div>
+      <div class="case__gallery gallery--masonry">
+        <img src="assets/img/divers-1.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-2.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-3.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-4.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-5.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-6.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-7.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+        <img src="assets/img/divers-8.jpg" alt="Projet social media" loading="lazy" data-i18n-attr="alt:divers.alt" />
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact__inner">
+    <p class="label label--light" data-i18n="contact.label">Contact</p>
+    <h2 class="contact__title" data-i18n="contact.title">Merci</h2>
+    <p class="contact__lede" data-i18n="contact.lede">Merci d'être arrivé jusqu'ici. Parlons du prochain projet.</p>
+    <div class="contact__links">
+      <a href="https://wa.me/5511915087265" class="contact__link">
+        <span class="contact__k" data-i18n="contact.phoneK">Téléphone</span>
+        <span class="contact__v">+55 11 91508-7265</span>
+      </a>
+      <a href="https://mateus.avasgestao.com" class="contact__link">
+        <span class="contact__k" data-i18n="contact.webK">Web</span>
+        <span class="contact__v">mateus.avasgestao.com</span>
+      </a>
+    </div>
+  </div>
+  <footer class="foot">
+    <span data-i18n="contact.foot1">Mateus Mendes</span>
+    <span data-i18n="contact.foot2">Marketing · Design · Développement</span>
+  </footer>
+</section>
+
+</main>
+
+<!-- ============ MODAL DE SÉLECTION DE LANGUE ============ -->
+<div id="language-modal" class="lang-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="langModalTitle">
+  <div class="lang-modal-card">
+    <span class="lang-modal-badge">Language / Langue</span>
+    <h2 id="langModalTitle" class="lang-modal-title">Choisissez votre langue</h2>
+    <p class="lang-modal-desc">Sélectionnez la langue de navigation pour continuer.</p>
+
+    <div class="lang-modal-grid">
+      <button type="button" class="lang-modal-btn" data-lang-btn="fr">
+        <span class="lang-btn-name">Français</span>
+        <span class="lang-btn-region">France</span>
+      </button>
+
+      <button type="button" class="lang-modal-btn" data-lang-btn="pt">
+        <span class="lang-btn-name">Português</span>
+        <span class="lang-btn-region">Brasil</span>
+      </button>
+
+      <button type="button" class="lang-modal-btn" data-lang-btn="es">
+        <span class="lang-btn-name">Español</span>
+        <span class="lang-btn-region">España</span>
+      </button>
+
+      <button type="button" class="lang-modal-btn" data-lang-btn="en">
+        <span class="lang-btn-name">English</span>
+        <span class="lang-btn-region">International</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" aria-label="Fermer" data-i18n-attr="aria-label:lb.close">&times;</button>
+  <img src="" alt="" id="lightboxImg" />
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  // Inicialização e controle do modal de idioma
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("language-modal");
+    const langModalBtns = modal.querySelectorAll("[data-lang-btn]");
+    
+    // 1. Verifica parâmetro de URL (ex.: ?lang=fr) ou preferência prévia salva
+    const urlParams = new URLSearchParams(window.location.search);
+    const langUrl = urlParams.get("lang");
+    const langSaved = localStorage.getItem("user_lang_pref");
+
+    if (langUrl) {
+      if (typeof setLanguage === "function") setLanguage(langUrl);
+    } else if (langSaved) {
+      if (typeof setLanguage === "function") setLanguage(langSaved);
+    } else {
+      // Primeiro acesso sem parâmetro: exibe o modal
+      modal.classList.add("active");
+    }
+
+    // 2. Clique em qualquer um dos botões dentro do modal
+    langModalBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const selectedLang = btn.getAttribute("data-lang-btn");
+        
+        localStorage.setItem("user_lang_pref", selectedLang);
+        
+        // Aciona a função de troca presente no seu js/i18n.js
+        if (typeof setLanguage === "function") {
+          setLanguage(selectedLang);
+        } else if (typeof changeLanguage === "function") {
+          changeLanguage(selectedLang);
+        }
+
+        // Atualiza a exibição textual do menu da barra de navegação
+        const currentLabel = document.getElementById("langCurrent");
+        if (currentLabel) {
+          currentLabel.textContent = selectedLang.toUpperCase();
+        }
+
+        // Fecha a tela com transição suave
+        modal.classList.remove("active");
+      });
+    });
+  });
+</script>
+</body>
+</html>
