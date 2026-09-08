@@ -1,7 +1,3 @@
-/* =========================================================
-   Mateus Mendes · Portfolio — internationalisation
-   Langues : fr (défaut), en, es, pt
-   ========================================================= */
 (function () {
   'use strict';
 
@@ -18,7 +14,6 @@
 
   var DICT = {
 
-    /* ---------- NAV ---------- */
     'nav.parcours':  { fr:'Parcours',      en:'About',        es:'Trayectoria',  pt:'Trajetória' },
     'nav.expertise': { fr:'Expertise',     en:'Expertise',    es:'Expertise',    pt:'Expertise' },
     'nav.logiciels': { fr:'Logiciels',     en:'Software',     es:'Software',     pt:'Softwares' },
@@ -29,7 +24,6 @@
     'nav.menuOpen':  { fr:'Ouvrir le menu',en:'Open menu',    es:'Abrir el menú',pt:'Abrir o menu' },
     'nav.langLabel': { fr:'Langue',        en:'Language',     es:'Idioma',       pt:'Idioma' },
 
-    /* ---------- HERO ---------- */
     'hero.eyebrow':  { fr:'Portfolio', en:'Portfolio', es:'Portafolio', pt:'Portfólio' },
     'hero.role':     {
       fr:'Marketing Specialist <i>·</i> Design <i>·</i> Développement Web',
@@ -53,7 +47,6 @@
     'hero.ctaContact':  { fr:'Me contacter',     en:'Get in touch',     es:'Contáctame',        pt:'Fale comigo' },
     'hero.alt':         { fr:'Portrait de Mateus Mendes', en:'Portrait of Mateus Mendes', es:'Retrato de Mateus Mendes', pt:'Retrato de Mateus Mendes' },
 
-    /* ---------- PARCOURS ---------- */
     'parcours.label': { fr:'Mon parcours', en:'My path', es:'Mi trayectoria', pt:'Minha trajetória' },
     'parcours.photoAlt': { fr:'Mateus Mendes au travail', en:'Mateus Mendes at work', es:'Mateus Mendes trabajando', pt:'Mateus Mendes trabalhando' },
     'parcours.p1': {
@@ -81,7 +74,6 @@
       pt:"O UX vem antes do código, e o produto nasce pensando no que ele deve gerar para a empresa."
     },
 
-    /* ---------- EXPERTISE ---------- */
     'exp.label': { fr:'Ce que je fais', en:'What I do', es:'Lo que hago', pt:'O que eu faço' },
     'exp.intro': {
       fr:"Développement, design et marketing chez une seule personne : je construis le produit qui part en production, je dessine l'interface et je pense la marque qui la porte.",
@@ -130,7 +122,6 @@
       pt:"Gemini, Claude e APIs oficiais (Google Places, YouTube) integrados aos meus produtos para automatizar tarefas e ganhar escala."
     },
 
-    /* ---------- DIVIDERS ---------- */
     'div.logiciels.title': { fr:'Logiciels', en:'Software', es:'Software', pt:'Softwares' },
     'div.logiciels.lede':  {
       fr:"Systèmes et plateformes que nous développons pour automatiser la production de contenu, organiser les ventes et faire passer les opérations à l'échelle.",
@@ -153,7 +144,6 @@
       pt:"Identidade, direção de arte e conteúdo para empresas que precisavam existir na mente do público antes de existir no orçamento de mídia."
     },
 
-    /* ---------- META (périmètre / année / secteur) ---------- */
     'meta.scope':   { fr:'Périmètre', en:'Scope',    es:'Alcance', pt:'Escopo' },
     'meta.year':    { fr:'Année',     en:'Year',     es:'Año',     pt:'Ano' },
     'meta.sector':  { fr:'Secteur',   en:'Sector',   es:'Sector',  pt:'Setor' },
@@ -161,7 +151,6 @@
     'meta.process': { fr:'Processus', en:'Process',  es:'Proceso', pt:'Processo' },
     'meta.result':  { fr:'Résultat',  en:'Result',   es:'Resultado',pt:'Resultado' },
 
-    /* ---------- LOGICIELS: CRM ---------- */
     'crm.stack': {
       fr:"Plateforme multi-entreprises en React, Tailwind et Firebase, avec pipeline kanban (dnd-kit) et prospection autonome via Gemini et Claude.",
       en:"Multi-company platform in React, Tailwind and Firebase, with kanban pipeline (dnd-kit) and autonomous prospecting via Gemini and Claude.",
@@ -189,7 +178,6 @@
     'crm.alt1': { fr:'Tableau de bord du CRM', en:'CRM dashboard', es:'Panel del CRM', pt:'Painel do CRM' },
     'crm.alt2': { fr:'Liste de leads du CRM', en:'CRM lead list', es:'Lista de leads del CRM', pt:'Lista de leads do CRM' },
 
-    /* ---------- LOGICIELS: DesignerAvas ---------- */
     'designer.stack': {
       fr:"Générateur de visuels en HTML5 Canvas et JavaScript pur, avec back-end PHP propre et Gemini intégré. Exporte feed et story prêts.",
       en:"Visual generator in HTML5 Canvas and pure JavaScript, with a clean PHP back-end and Gemini built in. Exports ready-to-post feed and story.",
@@ -217,7 +205,6 @@
     'designer.alt1': { fr:'Interface du générateur DesignerAvas', en:'DesignerAvas generator interface', es:'Interfaz del generador DesignerAvas', pt:'Interface do gerador DesignerAvas' },
     'designer.alt2': { fr:'Panneau d\'export feed et story', en:'Feed and story export panel', es:'Panel de exportación feed y story', pt:'Painel de exportação feed e story' },
 
-    /* ---------- LOGICIELS: TubeMetric ---------- */
     'tube.stack': {
       fr:"Planificateur et publicateur YouTube en HTML, CSS et JS, avec Gemini et l'API officielle de Google. Publie sans quitter la plateforme.",
       en:"YouTube planner and publisher in HTML, CSS and JS, with Gemini and Google's official API. Publishes without leaving the platform.",
@@ -245,7 +232,6 @@
     'tube.alt1': { fr:'Agenda de la chaîne dans TubeMetric', en:'Channel calendar in TubeMetric', es:'Agenda del canal en TubeMetric', pt:'Agenda do canal no TubeMetric' },
     'tube.alt2': { fr:"Programmation d'une vidéo", en:'Scheduling a video', es:'Programación de un video', pt:'Agendamento de um vídeo' },
 
-    /* ---------- SITES & APPS ---------- */
     'ins.title': { fr:"Site et App · Courtage d'assurance", en:'Site and App · Insurance brokerage', es:'Web y App · Corretaje de seguros', pt:'Site e App · Corretora de seguros' },
     'ins.desc': {
       fr:"Site en HTML, CSS et JavaScript qui capte des leads en temps réel, en les enregistrant directement dans un tableur via Google Apps Script. L'application, en Kotlin, est en marque blanche et intègre les assureurs via une API propre, avec souscription instantanée pour une partie des branches et alertes de renouvellement.",
@@ -279,7 +265,6 @@
     'shop.stack': { fr:'E-commerce · Catalogue · Commande en ligne', en:'E-commerce · Catalogue · Online ordering', es:'E-commerce · Catálogo · Pedido en línea', pt:'E-commerce · Catálogo · Pedido online' },
     'shop.alt': { fr:"Boutique en ligne de l'épicerie", en:'Grocery online store', es:'Tienda online de la tienda gourmet', pt:'Loja online do empório' },
 
-    /* ---------- MARQUES ---------- */
     'gann.scope': { fr:'Réseaux sociaux', en:'Social media', es:'Redes sociales', pt:'Redes sociais' },
     'gann.sector': { fr:'Finance', en:'Finance', es:'Finanzas', pt:'Finanças' },
     'gann.desc': {
@@ -366,7 +351,6 @@
     },
     'divers.alt': { fr:'Projet social media', en:'Social media project', es:'Proyecto social media', pt:'Projeto social media' },
 
-    /* ---------- PROJETS ---------- */
     'live.label': { fr:'En ligne', en:'Live', es:'En línea', pt:'No ar' },
     'live.title': {
       fr:'Découvrez tous les projets, en direct',
@@ -409,7 +393,6 @@
     'proj.rb':         { fr:'RB Solutions', en:'RB Solutions', es:'RB Solutions', pt:'RB Solutions' },
     'proj.vet':        { fr:'Clinique vétérinaire', en:'Veterinary clinic', es:'Clínica veterinaria', pt:'Clínica veterinária' },
 
-    /* ---------- CONTACT ---------- */
     'contact.label': { fr:'Contact', en:'Contact', es:'Contacto', pt:'Contato' },
     'contact.title': { fr:'Merci', en:'Thank you', es:'Gracias', pt:'Obrigado' },
     'contact.lede': {
@@ -426,12 +409,11 @@
     'lb.close': { fr:'Fermer', en:'Close', es:'Cerrar', pt:'Fechar' }
   };
 
-  /* ---------- API ---------- */
   function detectLang() {
     try {
       var stored = localStorage.getItem(STORAGE_KEY);
       if (stored && SUPPORTED.indexOf(stored) !== -1) return stored;
-    } catch (e) { /* localStorage indisponible : on tombe sur la détection */ }
+    } catch (e) {  }
     var nav = (navigator.language || 'fr').slice(0, 2).toLowerCase();
     return SUPPORTED.indexOf(nav) !== -1 ? nav : DEFAULT_LANG;
   }
@@ -439,18 +421,16 @@
   function translate(lang) {
     if (SUPPORTED.indexOf(lang) === -1) lang = DEFAULT_LANG;
 
-    // texte des noeuds marqués
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       var entry = DICT[key];
       if (!entry) return;
       var val = entry[lang] || entry[DEFAULT_LANG];
-      // valeurs contenant du HTML (ex. <br>, <i>) traitées en innerHTML
+
       if (val.indexOf('<') !== -1) el.innerHTML = val;
       else el.textContent = val;
     });
 
-    // attributs marqués : data-i18n-attr="alt:cle;title:cle2"
     document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
       var spec = el.getAttribute('data-i18n-attr');
       spec.split(';').forEach(function (pair) {
@@ -464,30 +444,26 @@
       });
     });
 
-    // <title> et meta description
     var meta = LANG_FULL[lang];
     document.title = meta.title;
     var m = document.querySelector('meta[name="description"]');
     if (m) m.setAttribute('content', meta.desc);
 
-    // <html lang>
     document.documentElement.setAttribute('lang', lang);
 
-    // état visuel du sélecteur
     document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
       b.classList.toggle('is-active', b.getAttribute('data-lang-btn') === lang);
     });
     var current = document.getElementById('langCurrent');
     if (current) current.textContent = LANG_LABELS[lang];
 
-    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* silencieux */ }
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {  }
   }
 
-  // exposition minimale pour main.js
   window.MMI18N = {
     init: function () {
       translate(detectLang());
-      // écoute des clics sur les boutons du sélecteur
+
       document.querySelectorAll('[data-lang-btn]').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
@@ -501,3 +477,292 @@
     labels: LANG_LABELS
   };
 })();
+
+(function () {
+  'use strict';
+
+  var supportedLangs = ['fr', 'pt', 'es', 'en'];
+
+  function applyLanguage(lang) {
+    if (!lang) return;
+    lang = lang.toLowerCase();
+
+    try {
+      localStorage.setItem('user_lang_pref', lang);
+      localStorage.setItem('lang', lang);
+      localStorage.setItem('mm_lang', lang);
+    } catch (e) {}
+
+    var cur = document.getElementById('langCurrent');
+    if (cur) cur.textContent = lang.toUpperCase();
+
+    if (window.MMI18N) {
+      if (typeof window.MMI18N.set === 'function') window.MMI18N.set(lang);
+      else if (typeof window.MMI18N.setLang === 'function') window.MMI18N.setLang(lang);
+      else if (typeof window.MMI18N.apply === 'function') window.MMI18N.apply(lang);
+      else if (typeof window.MMI18N.changeLanguage === 'function') window.MMI18N.changeLanguage(lang);
+    }
+
+    var menuBtns = document.querySelectorAll('.lang__menu [data-lang-btn]');
+    menuBtns.forEach(function (b) {
+      if (b.getAttribute('data-lang-btn') === lang) {
+        b.classList.add('is-active');
+      } else {
+        b.classList.remove('is-active');
+      }
+    });
+  }
+
+  if (window.MMI18N && typeof window.MMI18N.init === 'function') {
+    window.MMI18N.init();
+  }
+
+  var langModal = document.getElementById('language-modal');
+
+  if (langModal) {
+    var urlParams = new URLSearchParams(window.location.search);
+    var langFromUrl = urlParams.get('lang');
+    var langSaved = null;
+
+    try {
+      langSaved = localStorage.getItem('user_lang_pref') || localStorage.getItem('lang') || localStorage.getItem('mm_lang');
+    } catch (e) {}
+
+    if (langFromUrl && supportedLangs.indexOf(langFromUrl.toLowerCase()) !== -1) {
+      applyLanguage(langFromUrl);
+    } else if (langSaved && supportedLangs.indexOf(langSaved.toLowerCase()) !== -1) {
+      applyLanguage(langSaved);
+    } else {
+      langModal.classList.add('active');
+    }
+
+    var modalBtns = langModal.querySelectorAll('[data-lang-btn]');
+    modalBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var chosen = btn.getAttribute('data-lang-btn');
+        applyLanguage(chosen);
+
+        var menuBtn = document.querySelector('.lang__menu [data-lang-btn="' + chosen + '"]');
+        if (menuBtn) menuBtn.click();
+
+        langModal.classList.remove('active');
+      });
+    });
+  }
+
+  var langPicker = document.getElementById('langPicker');
+  var langToggle = document.getElementById('langToggle');
+  if (langPicker && langToggle) {
+    langToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = langPicker.classList.toggle('is-open');
+      langToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('.lang__menu [data-lang-btn]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var l = btn.getAttribute('data-lang-btn');
+        applyLanguage(l);
+        langPicker.classList.remove('is-open');
+        langToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!langPicker.contains(e.target)) {
+        langPicker.classList.remove('is-open');
+        langToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        langPicker.classList.remove('is-open');
+        langToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('navBurger');
+  var links = document.getElementById('navLinks');
+
+  var hero = document.querySelector('.hero');
+  function onScroll() {
+    var trigger = hero ? hero.offsetHeight - 90 : 120;
+    nav.classList.toggle('is-solid', window.scrollY > trigger);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  function closeMenu() {
+    links.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+  if (burger && links) {
+    burger.addEventListener('click', function () {
+      var open = links.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+  }
+
+  var sections = ['parcours', 'expertise', 'marques', 'logiciels', 'produits', 'projets', 'contact']
+    .map(function (id) { return document.getElementById(id); })
+    .filter(Boolean);
+  var navMap = {};
+  if (links) {
+    links.querySelectorAll('a').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      var id = href.replace('#', '');
+      navMap[id] = a;
+    });
+  }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          Object.values(navMap).forEach(function (a) { a.classList.remove('active'); });
+          var active = navMap[e.target.id];
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  var revealTargets = document.querySelectorAll(
+    '.parcours__body, .parcours__aside, .expertise__head, .pillar, .ai-card, ' +
+    '.divider__inner, .case, .soft, .prod, .contact__inner'
+  );
+  revealTargets.forEach(function (el) { el.classList.add('reveal'); });
+
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    revealTargets.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('is-in'); });
+  }
+
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.live__ifr'));
+
+  function scaleFrame(ifr) {
+    var frame = ifr.parentElement;
+    if (!frame) return;
+    var s = frame.clientWidth / 1280;
+    ifr.style.transform = 'scale(' + s + ')';
+  }
+
+  function loadFrame(ifr) {
+    if (ifr.dataset.loaded) return;
+    ifr.dataset.loaded = '1';
+    var src = (ifr.getAttribute('data-src') || '').replace(/^http:/, 'https:');
+    scaleFrame(ifr);
+    ifr.addEventListener('load', function () { ifr.classList.add('is-ready'); });
+    ifr.src = src;
+  }
+
+  if (frames.length) {
+    frames.forEach(scaleFrame);
+    var st;
+    window.addEventListener('resize', function () {
+      clearTimeout(st);
+      st = setTimeout(function () { frames.forEach(scaleFrame); }, 150);
+    });
+
+    if (window.matchMedia('(min-width: 720px)').matches && 'IntersectionObserver' in window) {
+      var frameObs = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { loadFrame(e.target); obs.unobserve(e.target); }
+        });
+      }, { rootMargin: '400px 0px' });
+      frames.forEach(function (f) { frameObs.observe(f); });
+    }
+  }
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbClose = lb ? lb.querySelector('.lightbox__close') : null;
+
+  function openLb(src, alt) {
+    if (!lb || !lbImg) return;
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    if (!lb || !lbImg) return;
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll(
+    '.case__gallery img, .soft__shots img, .prod__shots img, .case__cover img'
+  ).forEach(function (img) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () { openLb(img.src, img.alt); });
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLb);
+  if (lb) {
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb && lb.classList.contains('is-open')) closeLb();
+  });
+
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("language-modal");
+  const langModalBtns = modal.querySelectorAll("[data-lang-btn]");
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const langUrl = urlParams.get("lang");
+  const langSaved = localStorage.getItem("user_lang_pref");
+
+  if (langUrl) {
+    if (typeof setLanguage === "function") setLanguage(langUrl);
+  } else if (langSaved) {
+    if (typeof setLanguage === "function") setLanguage(langSaved);
+  } else {
+
+    modal.classList.add("active");
+  }
+
+  langModalBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const selectedLang = btn.getAttribute("data-lang-btn");
+
+      localStorage.setItem("user_lang_pref", selectedLang);
+
+      if (typeof setLanguage === "function") {
+        setLanguage(selectedLang);
+      } else if (typeof changeLanguage === "function") {
+        changeLanguage(selectedLang);
+      }
+
+      const currentLabel = document.getElementById("langCurrent");
+      if (currentLabel) {
+        currentLabel.textContent = selectedLang.toUpperCase();
+      }
+
+      modal.classList.remove("active");
+    });
+  });
+});

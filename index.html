@@ -10,116 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
 
-<style>
-  /* ============ OVERLAY & MODAL DE IDIOMA ============ */
-  .lang-modal-overlay {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(10, 9, 8, 0.78);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .lang-modal-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .lang-modal-card {
-    background: #171513;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 36px 32px;
-    max-width: 440px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-    transform: scale(0.96);
-    transition: transform 0.35s ease;
-    box-sizing: border-box;
-  }
-
-  .lang-modal-overlay.active .lang-modal-card {
-    transform: scale(1);
-  }
-
-  .lang-modal-badge {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #c5a880;
-    display: block;
-    margin-bottom: 12px;
-  }
-
-  .lang-modal-title {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 1.6rem;
-    line-height: 1.25;
-    color: #f5f5f5;
-    margin: 0 0 8px 0;
-    font-weight: 400;
-  }
-
-  .lang-modal-desc {
-    font-size: 0.88rem;
-    color: #9a948d;
-    margin: 0 0 24px 0;
-    line-height: 1.45;
-  }
-
-  .lang-modal-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .lang-modal-btn {
-    background: #211e1a;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 16px 12px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .lang-modal-btn:hover {
-    background: #2b2722;
-    border-color: #c5a880;
-    transform: translateY(-2px);
-  }
-
-  .lang-modal-btn .lang-btn-name {
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  .lang-modal-btn .lang-btn-region {
-    color: #8c857b;
-    font-size: 0.75rem;
-  }
-</style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="#accueil" class="nav__brand">
@@ -155,7 +48,6 @@
 
 <main>
 
-<!-- ============ HERO ============ -->
 <section class="hero" id="accueil">
   <div class="hero__grid">
     <div class="hero__text">
@@ -174,7 +66,6 @@
   </div>
 </section>
 
-<!-- ============ PARCOURS ============ -->
 <section class="parcours section" id="parcours">
   <div class="wrap parcours__grid">
     <div class="parcours__aside">
@@ -192,7 +83,6 @@
   </div>
 </section>
 
-<!-- ============ EXPERTISE ============ -->
 <section class="expertise section" id="expertise">
   <div class="wrap">
     <header class="expertise__head">
@@ -236,7 +126,6 @@
   </div>
 </section>
 
-<!-- ============ PILIER 01 · LOGICIELS ============ -->
 <section class="divider" id="logiciels">
   <div class="wrap divider__inner">
     <p class="divider__index">01 / 03</p>
@@ -248,7 +137,6 @@
 <section class="software section">
   <div class="wrap">
 
-    <!-- CRM -->
     <article class="soft">
       <div class="soft__head">
         <h3 class="soft__name">CRM</h3>
@@ -265,7 +153,6 @@
       </div>
     </article>
 
-    <!-- DesignerAvas -->
     <article class="soft">
       <div class="soft__head">
         <h3 class="soft__name">DesignerAvas</h3>
@@ -282,7 +169,6 @@
       </div>
     </article>
 
-    <!-- TubeMetric -->
     <article class="soft">
       <div class="soft__head">
         <h3 class="soft__name">TubeMetric</h3>
@@ -302,7 +188,6 @@
   </div>
 </section>
 
-<!-- ============ PILIER 02 · SITES & APPS ============ -->
 <section class="divider divider--dark" id="produits">
   <div class="wrap divider__inner">
     <p class="divider__index">02 / 03</p>
@@ -314,7 +199,6 @@
 <section class="products section">
   <div class="wrap">
 
-    <!-- Assurance -->
     <article class="prod">
       <div class="prod__info">
         <h3 class="prod__name" data-i18n="ins.title">Site et App · Courtage d'assurance</h3>
@@ -327,7 +211,6 @@
       </div>
     </article>
 
-    <!-- Patinage -->
     <article class="prod prod--reverse">
       <div class="prod__info">
         <h3 class="prod__name" data-i18n="skate.title">App · École de patinage</h3>
@@ -341,7 +224,6 @@
       </div>
     </article>
 
-    <!-- Épicerie -->
     <article class="prod">
       <div class="prod__info">
         <h3 class="prod__name" data-i18n="shop.title">Site · Épicerie</h3>
@@ -356,7 +238,6 @@
   </div>
 </section>
 
-<!-- ============ PROJETS EN LIGNE ============ -->
 <section class="live-section section" id="projets">
   <div class="wrap">
     <header class="live-head">
@@ -416,7 +297,6 @@
   </div>
 </section>
 
-<!-- ============ PILIER 03 · MARQUES ============ -->
 <section class="divider" id="marques">
   <div class="wrap divider__inner">
     <p class="divider__index">03 / 03</p>
@@ -428,7 +308,6 @@
 <section class="cases section">
   <div class="wrap">
 
-    <!-- Gann Capital -->
     <article class="case">
       <div class="case__info">
         <h3 class="case__name">Gann Capital</h3>
@@ -445,7 +324,6 @@
       </div>
     </article>
 
-    <!-- Ana Sillos -->
     <article class="case">
       <div class="case__info">
         <h3 class="case__name">Ana Sillos</h3>
@@ -467,7 +345,6 @@
       </div>
     </article>
 
-    <!-- MedViana -->
     <article class="case">
       <div class="case__info">
         <h3 class="case__name">MedViana</h3>
@@ -485,7 +362,6 @@
       </div>
     </article>
 
-    <!-- Dr. Paola -->
     <article class="case">
       <div class="case__info">
         <h3 class="case__name">Dr. Paola</h3>
@@ -507,7 +383,6 @@
       </div>
     </article>
 
-    <!-- Helpers Delivery -->
     <article class="case">
       <div class="case__info">
         <h3 class="case__name">Helpers Delivery</h3>
@@ -525,7 +400,6 @@
       </div>
     </article>
 
-    <!-- Divers -->
     <article class="case case--divers">
       <div class="case__info">
         <h3 class="case__name" data-i18n="divers.title">Divers</h3>
@@ -547,7 +421,6 @@
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="wrap contact__inner">
     <p class="label label--light" data-i18n="contact.label">Contact</p>
@@ -572,7 +445,6 @@
 
 </main>
 
-<!-- ============ MODAL DE SÉLECTION DE LANGUE ============ -->
 <div id="language-modal" class="lang-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="langModalTitle">
   <div class="lang-modal-card">
     <span class="lang-modal-badge">Language / Langue</span>
@@ -603,60 +475,12 @@
   </div>
 </div>
 
-<!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lightbox__close" aria-label="Fermer" data-i18n-attr="aria-label:lb.close">&times;</button>
   <img src="" alt="" id="lightboxImg" />
 </div>
 
-<script src="js/i18n.js"></script>
-<script src="js/main.js"></script>
+<script src="js/script.js"></script>
 
-<script>
-  // Inicialização e controle do modal de idioma
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("language-modal");
-    const langModalBtns = modal.querySelectorAll("[data-lang-btn]");
-    
-    // 1. Verifica parâmetro de URL (ex.: ?lang=fr) ou preferência prévia salva
-    const urlParams = new URLSearchParams(window.location.search);
-    const langUrl = urlParams.get("lang");
-    const langSaved = localStorage.getItem("user_lang_pref");
-
-    if (langUrl) {
-      if (typeof setLanguage === "function") setLanguage(langUrl);
-    } else if (langSaved) {
-      if (typeof setLanguage === "function") setLanguage(langSaved);
-    } else {
-      // Primeiro acesso sem parâmetro: exibe o modal
-      modal.classList.add("active");
-    }
-
-    // 2. Clique em qualquer um dos botões dentro do modal
-    langModalBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const selectedLang = btn.getAttribute("data-lang-btn");
-        
-        localStorage.setItem("user_lang_pref", selectedLang);
-        
-        // Aciona a função de troca presente no seu js/i18n.js
-        if (typeof setLanguage === "function") {
-          setLanguage(selectedLang);
-        } else if (typeof changeLanguage === "function") {
-          changeLanguage(selectedLang);
-        }
-
-        // Atualiza a exibição textual do menu da barra de navegação
-        const currentLabel = document.getElementById("langCurrent");
-        if (currentLabel) {
-          currentLabel.textContent = selectedLang.toUpperCase();
-        }
-
-        // Fecha a tela com transição suave
-        modal.classList.remove("active");
-      });
-    });
-  });
-</script>
 </body>
 </html>
